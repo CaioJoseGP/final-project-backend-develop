@@ -1,6 +1,5 @@
 # BANCO DE DADOS:
 
-´´´sql
 CREATE DATABASE IF NOT EXISTS BD_Rest;
 
 CREATE TABLE tb_pessoa (
@@ -10,4 +9,3 @@ CREATE TABLE tb_pessoa (
     endereco VARCHAR(100),
     genero VARCHAR(10)
 );
-´´´
