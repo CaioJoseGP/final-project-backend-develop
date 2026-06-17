@@ -2,19 +2,35 @@ package br.com.ifgoiano.gestaopessoas2026.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
+@Entity
+@Table(name = "tb_pessoa")
 public class Pessoa implements Serializable {
-    
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome", nullable = false, length = 80)
     private String nome;
+
+    @Column(name = "sobrenome", nullable = false, length = 80)
     private String sobrenome;
+
+    @Column(name = "endereco",length = 100)
     private String endereco;
+
+    @Column(name = "genero",length = 10)
     private String genero;
 
-    public Pessoa() {
-    }
+    public Pessoa() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

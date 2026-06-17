@@ -3,6 +3,8 @@ package br.com.ifgoiano.gestaopessoas2026.handle;
 import br.com.ifgoiano.gestaopessoas2026.exceptions.AcessoNaoAutorizadoException;
 import br.com.ifgoiano.gestaopessoas2026.exceptions.ExceptionResponse;
 import br.com.ifgoiano.gestaopessoas2026.exceptions.RequisicaoInvalidaException;
+import br.com.ifgoiano.gestaopessoas2026.exceptions.ResourceNotFoundException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -45,5 +47,15 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                 request.getDescription(false)
         );
         return new ResponseEntity<>(exceptionResponse, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(Exception ex, WebRequest request) {
+        ExceptionResponse exceptionResponse = new ExceptionResponse(
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(false)
+        );
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
     }
 }
