@@ -4,8 +4,8 @@ CREATE DATABASE IF NOT EXISTS BD_Rest;
 
 CREATE TABLE tb_pessoa (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(60) NOT NULL,
-    sobrenome VARCHAR(120) NOT NULL,
-    endereco VARCHAR(200),
+    nome VARCHAR(80) NOT NULL,
+    sobrenome VARCHAR(80) NOT NULL,
+    endereco VARCHAR(100),
     genero VARCHAR(10)
 );
