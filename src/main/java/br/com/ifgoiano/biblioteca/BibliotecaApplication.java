@@ -1,13 +1,13 @@
-package br.com.ifgoiano.gestaopessoas2026;
+package br.com.ifgoiano.biblioteca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GestaoPessoas2026Application {
+public class BibliotecaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GestaoPessoas2026Application.class, args);
+        SpringApplication.run(BibliotecaApplication.class, args);
     }
 
 }

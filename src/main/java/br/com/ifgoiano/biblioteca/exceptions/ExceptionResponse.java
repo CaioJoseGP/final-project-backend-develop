@@ -1,4 +1,4 @@
-package br.com.ifgoiano.gestaopessoas2026.exceptions;
+package br.com.ifgoiano.biblioteca.exceptions;
 
 import java.io.Serializable;
 import java.util.Date;

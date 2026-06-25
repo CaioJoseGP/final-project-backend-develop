@@ -1,4 +1,4 @@
-package br.com.ifgoiano.gestaopessoas2026.exceptions;
+package br.com.ifgoiano.biblioteca.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

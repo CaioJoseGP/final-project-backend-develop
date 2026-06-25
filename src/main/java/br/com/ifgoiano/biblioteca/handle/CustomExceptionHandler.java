@@ -1,9 +1,8 @@
-package br.com.ifgoiano.gestaopessoas2026.handle;
+package br.com.ifgoiano.biblioteca.handle;
 
-import br.com.ifgoiano.gestaopessoas2026.exceptions.AcessoNaoAutorizadoException;
-import br.com.ifgoiano.gestaopessoas2026.exceptions.ExceptionResponse;
-import br.com.ifgoiano.gestaopessoas2026.exceptions.RequisicaoInvalidaException;
-import br.com.ifgoiano.gestaopessoas2026.exceptions.ResourceNotFoundException;
+import br.com.ifgoiano.biblioteca.exceptions.ExceptionResponse;
+import br.com.ifgoiano.biblioteca.exceptions.ResourceNotFoundException;
+import br.com.ifgoiano.biblioteca.exceptions.RegraNegocioException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,24 +28,14 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(RequisicaoInvalidaException.class)
-    public final ResponseEntity<ExceptionResponse> handleBadRequestExceptions(Exception ex, WebRequest request) {
+    @ExceptionHandler(RegraNegocioException.class)
+    public final ResponseEntity<ExceptionResponse> handleRegraNegocioExceptions(Exception ex, WebRequest request) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(
                 new Date(),
                 ex.getMessage(),
                 request.getDescription(false)
         );
         return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(AcessoNaoAutorizadoException.class)
-    public final ResponseEntity<ExceptionResponse> handleUnauthorizedExceptions(Exception ex, WebRequest request) {
-        ExceptionResponse exceptionResponse = new ExceptionResponse(
-                new Date(),
-                ex.getMessage(),
-                request.getDescription(false)
-        );
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
