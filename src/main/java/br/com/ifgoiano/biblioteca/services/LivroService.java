@@ -22,6 +22,9 @@ public class LivroService {
     private CategoriaRepository categoriaRepository;
 
     public Livro save(Livro livro) {
+        if (livro.getIsbn() != null && repository.existsByIsbn(livro.getIsbn())) {
+            throw new br.com.ifgoiano.biblioteca.exceptions.RegraNegocioException("Já existe um livro cadastrado com este ISBN.");
+        }
         if(livro.getAutor() != null && livro.getAutor().getId() != null) {
             livro.setAutor(autorRepository.findById(livro.getAutor().getId()).orElseThrow(
                 () -> new ResourceNotFoundException("Autor não encontrado")

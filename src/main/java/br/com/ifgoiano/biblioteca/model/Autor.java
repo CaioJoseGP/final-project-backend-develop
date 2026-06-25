@@ -35,7 +35,7 @@ public class Autor implements Serializable {
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("autor-livro")
     private List<Livro> livros = new ArrayList<>();
 
     public Autor() {}

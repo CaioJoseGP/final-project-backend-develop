@@ -32,12 +32,12 @@ public class Emprestimo implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_livro", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("livro-emprestimo")
     private Livro livro;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_membro", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("usuario-emprestimo")
     private Usuario usuario;
 
     public Emprestimo() {}

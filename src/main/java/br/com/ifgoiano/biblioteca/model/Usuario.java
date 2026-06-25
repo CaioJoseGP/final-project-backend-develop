@@ -41,7 +41,7 @@ public class Usuario implements Serializable {
     private String email;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("usuario-emprestimo")
     private List<Emprestimo> emprestimos = new ArrayList<>();
 
     public Usuario() {}

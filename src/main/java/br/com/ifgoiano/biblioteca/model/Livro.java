@@ -45,16 +45,16 @@ public class Livro implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_autor", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("autor-livro")
     private Autor autor;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_categoria", nullable = false)
-    @JsonBackReference
+    @JsonBackReference("categoria-livro")
     private Categoria categoria;
 
     @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("livro-emprestimo")
     private List<Emprestimo> emprestimos = new ArrayList<>();
 
     public Livro() {}

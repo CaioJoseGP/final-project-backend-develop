@@ -31,7 +31,7 @@ public class Categoria implements Serializable {
     private String descricao;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("categoria-livro")
     private List<Livro> livros = new ArrayList<>();
 
     public Categoria() {}
